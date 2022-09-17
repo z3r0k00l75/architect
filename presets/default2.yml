@@ -1,0 +1,45 @@
+---
+hostname: Archon
+username: n0d0z3
+
+regional:
+  locale: en_US.UTF-8
+  timezone: America/New_York
+  keymap: us
+
+partitioning:
+  disk: /dev/nvme0n1
+  # Choose either ext4 or btrfs
+  filesystem: ext4
+  # If set to true, disk is encrypted with LVM-on-LUKS
+  encrypted: false
+  # Swapfile size in MiB. Set to zero to disable swap
+  swap: 32768
+
+provisioning:
+  # Desktop environment. Options: none, gnome, plasma, xfce, mate
+  desktop: mate
+  # Install appropriate desktop extras like gnome-extra, kde-applications, xfce4-goodies
+  desktop-extras: true
+  # Choose to install the Plymouth boot-splash
+  plymouth: false
+  # Install a collection of extra fonts for the desktop
+  fonts: true
+  # Install bluetooth and bluetooth audio support
+  bluetooth: true
+  # List of packages to install
+  packages:
+    - git
+    - base-devel
+    - pacman-contrib
+    - firefox
+
+architect:
+  # Choose the branch of Architect to clone during install
+  branch: master
+  # Option to disable the provisioning stage
+  disable_stage3: false
+  # Enable "set -x" in scripts for debugging
+  debug: false
+  # Unmount drives and reboot after install
+  reboot: true
